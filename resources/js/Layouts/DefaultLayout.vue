@@ -1,31 +1,44 @@
 <script setup>
 import {Link} from '@inertiajs/vue3'
+import DefaultNav from "../Layouts/DefaultNav/Default/DefaultNav.vue";
 </script>
 
 <template>
-    <div class="d-flex flex-column">
-        <div class="py-1">
-            <v-container class="d-flex align-end">
-                <img style="height: 100px" src="/images/logo-thanh-pho-sa-dec.png" alt="logo">
-                <div class="ml-2 d-flex flex-column">
-                    <span style="font-size: 14pt">UBND THÀNH PHỐ SA ĐÉC</span>
-                    <span style="font-size: 30pt">Trang thông tin văn hoá</span>
+    <v-app id="inspire">
+        <v-system-bar class="pa-2 bg-white" height="140">
+            <v-container height="140" class="d-flex justify-lg-space-between align-center " >
+                <div class="d-flex align-center banner">
+                    <img src="/images/logo-thanh-pho-sa-dec.png" alt="logo">
+                    <div class="ml-2">
+                        <div class="text-h6 font-weight-bold text-left">UBND THÀNH PHỐ SA ĐÉC</div>
+                        <div class="text-h5 font-weight-bold">TRANG THÔNG TIN DANH HIỆU VĂN HOÁ</div>
+                    </div>
                 </div>
             </v-container>
-        </div>
-        <nav class="py-1">
-           <v-container>
-               <Link class="menu-link" href="/">Trang chủ</Link>
-           </v-container>
-        </nav>
-        <slot></slot>
-    </div>
+        </v-system-bar>
+        <v-app-bar flat color="primary">
+            <default-nav></default-nav>
+        </v-app-bar>
+
+        <v-main class="bg-grey-lighten-3">
+            <v-container>
+                <slot></slot>
+            </v-container>
+        </v-main>
+    </v-app>
+
+    <!--    <div class="d-flex flex-column">-->
+
+    <!--        </div>-->
+    <!--        <DefaultNav></DefaultNav>-->
+    <!--        <slot></slot>-->
+    <!--    </div>-->
 </template>
 
 <style scoped>
-.menu-link{
-    text-decoration: none;
-    font-size: 15pt;
-    padding: 10px 15px;
+
+.banner,
+img {
+    height: 100%;
 }
 </style>
