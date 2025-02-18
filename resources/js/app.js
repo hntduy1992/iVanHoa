@@ -1,7 +1,6 @@
 import {createApp, h} from 'vue'
 import {createInertiaApp} from '@inertiajs/vue3'
 import {resolvePageComponent} from "laravel-vite-plugin/inertia-helpers";
-
 // Vuetify
 import 'vuetify/styles'
 import {createVuetify} from 'vuetify'
@@ -24,7 +23,6 @@ const vuetify = createVuetify({
     },
 })
 
-
 createInertiaApp({
     resolve: (name) => {
         const page = resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue'));
@@ -39,4 +37,5 @@ createInertiaApp({
             .use(vuetify)
             .mount(el)
     },
-})
+});
+
