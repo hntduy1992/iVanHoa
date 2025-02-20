@@ -1,7 +1,7 @@
 <script setup>
 
 import {router} from "@inertiajs/vue3";
-import UserLoginStatus from "@/Layouts/DefaultNav/Default/UserLoginStatus.vue";
+import UserLoginStatus from "../Default/UserLoginStatus.vue";
 
 const links = [
     {text: 'Trang chủ', href: '/', icon: 'mdi mdi-home'},
@@ -26,7 +26,6 @@ const links = [
                 ></v-tab>
             </v-tabs>
             <v-spacer></v-spacer>
-
         </v-container>
     </v-app-bar>
 </template>

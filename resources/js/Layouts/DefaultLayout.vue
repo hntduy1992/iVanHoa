@@ -1,7 +1,6 @@
 <script setup>
-import {Link} from '@inertiajs/vue3'
-import DefaultNav from "../Layouts/DefaultNav/Default/DefaultNav.vue";
-import UserLoginStatus from "@/Layouts/DefaultNav/Default/UserLoginStatus.vue";
+import DefaultNav from "./Default/DefaultNav.vue";
+import UserLoginStatus from "./Default/UserLoginStatus.vue";
 </script>
 
 <template>
@@ -29,13 +28,6 @@ import UserLoginStatus from "@/Layouts/DefaultNav/Default/UserLoginStatus.vue";
             </v-container>
         </v-main>
     </v-app>
-
-    <!--    <div class="d-flex flex-column">-->
-
-    <!--        </div>-->
-    <!--        <DefaultNav></DefaultNav>-->
-    <!--        <slot></slot>-->
-    <!--    </div>-->
 </template>
 
 <style scoped>
