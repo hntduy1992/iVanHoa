@@ -3,6 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::prefix('auth')->group(function () {
-
+Route::get('/dang-nhap', function () {
+    return Inertia::render('Auth/Login', []);
 });
