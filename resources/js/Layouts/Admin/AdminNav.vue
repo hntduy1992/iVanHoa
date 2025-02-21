@@ -6,6 +6,7 @@ import MenuToChucDanhGia from "./Menu/MenuToChucDanhGia.vue";
 import MenuTuDanhGia from "./Menu/MenuTuDanhGia.vue";
 import MenuThamDinh from "./Menu/MenuThamDinh.vue";
 import {router} from "@inertiajs/vue3";
+import MenuCauHinh from "@/Layouts/Admin/Menu/MenuCauHinh.vue";
 
 
 </script>
@@ -16,7 +17,7 @@ import {router} from "@inertiajs/vue3";
             <v-btn icon="mdi-home"
                    @click="router.get({name: 'admin.dashboard'})"
             ></v-btn>
-
+            <MenuCauHinh></MenuCauHinh>
             <MenuDonVi></MenuDonVi>
             <MenuToChucDanhGia></MenuToChucDanhGia>
             <MenuTuDanhGia></MenuTuDanhGia>
