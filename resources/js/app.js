@@ -10,6 +10,7 @@ import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.min.css'
 import {aliases, mdi} from 'vuetify/iconsets/mdi'
 import DefaultLayout from "./Layouts/DefaultLayout.vue";
+import AdminLayout from "./Layouts/AdminLayout.vue";
 // Components
 const vuetify = createVuetify({
     components,
@@ -27,7 +28,8 @@ createInertiaApp({
     resolve: (name) => {
         const page = resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue'));
         page.then((module) => {
-            module.default.layout = module.default.layout || DefaultLayout
+            // console.log(name.include('Admin'));
+            module.default.layout = name.includes('Admin') ? AdminLayout : DefaultLayout
         });
         return page;
     },

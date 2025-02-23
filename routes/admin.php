@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 Route::prefix('quan-tri')->group(function () {
-    Route::get('dashboard',function () {
-        return Inertia::render('Admin/Dashboard/DashboardIndex');
-    })->name('admin.dashboard');
+    Route::prefix('dashboard')->group(function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/cap-nhat', [DashboardController::class, 'edit'])->name('dashboard.edit');
+        Route::get('/test', [DashboardController::class, 'test'])->name('dashboard.test');
+    });
 });
