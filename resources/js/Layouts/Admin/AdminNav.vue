@@ -2,7 +2,7 @@
 
 import AdminLoginStatus from "../Admin/AdminLoginStatus.vue";
 import MenuDonVi from "./Menu/MenuDonVi.vue";
-import MenuToChucDanhGia from "./Menu/MenuToChucDanhGia.vue";
+import MenuDanhMuc from "./Menu/MenuDanhMuc.vue";
 import MenuTuDanhGia from "./Menu/MenuTuDanhGia.vue";
 import MenuThamDinh from "./Menu/MenuThamDinh.vue";
 import {router} from "@inertiajs/vue3";
@@ -19,7 +19,7 @@ import MenuCauHinh from "@/Layouts/Admin/Menu/MenuCauHinh.vue";
       ></v-btn>
       <MenuCauHinh></MenuCauHinh>
       <MenuDonVi></MenuDonVi>
-      <MenuToChucDanhGia></MenuToChucDanhGia>
+      <MenuDanhMuc></MenuDanhMuc>
       <MenuTuDanhGia></MenuTuDanhGia>
       <MenuThamDinh></MenuThamDinh>
       <v-spacer></v-spacer>
