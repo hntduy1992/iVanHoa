@@ -2,7 +2,7 @@
 import {router} from "@inertiajs/vue3";
 
 const items = [
-    {title: 'Văn bản', href: '/quan-tri/bo-tieu-chi/van-ban'},
+    {title: 'Quyết định', href: '/quan-tri/danh-muc/quyet-dinh'},
     {title: 'Danh hiệu', href: '/quan-tri/don-vi/don-vi-con'},
     {title: 'Bộ tiêu chí', href: '/quan-tri/don-vi/danh-sach-tai-khoan'},
     {title: 'Đơn vị thẩm định', href: '/quan-tri/don-vi/danh-sach-tai-khoan'},
@@ -14,7 +14,7 @@ const items = [
 
 <template>
     <v-btn>
-        Tổ chức đánh giá
+        Danh mục
 
         <v-menu activator="parent">
             <v-list>
@@ -22,7 +22,7 @@ const items = [
                     v-for="(item, index) in items"
                     :key="index"
                     :value="index"
-                    @click="router.get(item.name)"
+                    @click="router.get(item.href)"
                 >
                     <v-list-item-title>{{ item.title }}</v-list-item-title>
                 </v-list-item>
