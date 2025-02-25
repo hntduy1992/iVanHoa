@@ -1,20 +1,23 @@
 <script setup>
 
-import {ref} from "vue";
-import {tr} from "vuetify/locale";
+import {reactive, ref} from "vue";
 import QuyetDinhCreateForm from "@/Pages/Admin/DanhMuc/QuyetDinh/QuyetDinhCreateForm.vue";
 
 const dialog = ref(false)
 
-const quyetDinhModel = ref({
-    id: Number,
-    nam: Number,
-    soHieu: String,
-    trichYeu: String,
-    path: String
+const quyetDinhModel = reactive({
+    id: 0 ,
+    nam: 2024,
+    soHieu: 'HHTT',
+    trichYeu: 'String',
+    path: ''
 })
 const openCreateForm = () => {
     dialog.value = true
+}
+
+const save = ()=>{
+    console.log(quyetDinhModel)
 }
 </script>
 
@@ -57,7 +60,6 @@ const openCreateForm = () => {
             </v-card>
         </v-col>
     </v-row>
-<pre>{{quyetDinhModel}}</pre>
     <!--    Dialog-->
     <v-dialog
         v-model="dialog"
@@ -66,13 +68,8 @@ const openCreateForm = () => {
         <v-card>
             <v-card-title>Thêm mới quyết định</v-card-title>
             <v-card-text>
-                <quyet-dinh-create-form v-model="quyetDinhModel"></quyet-dinh-create-form>
+                <quyet-dinh-create-form ></quyet-dinh-create-form>
             </v-card-text>
-            <template v-slot:actions>
-                <v-btn prepend-icon="mdi-content-save" color="success">Lưu</v-btn>
-                <v-btn prepend-icon="mdi-refresh" color="info">Làm mới</v-btn>
-                <v-btn prepend-icon="mdi-close">Huỷ</v-btn>
-            </template>
         </v-card>
     </v-dialog>
 </template>

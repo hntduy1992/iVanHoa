@@ -12,4 +12,8 @@ class QuyetDinh extends Model
         'trichYeu',
         'path'
     ];
+
+    protected $table = 'ql_quyet-dinh';
+
+
 }

@@ -24,6 +24,9 @@ const vuetify = createVuetify({
     },
 })
 
+import ToastPlugin from "vue-toast-notification";
+import 'vue-toast-notification/dist/theme-bootstrap.css';
+
 createInertiaApp({
     resolve: (name) => {
         const page = resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue'));
@@ -37,6 +40,7 @@ createInertiaApp({
         createApp({render: () => h(App, props)})
             .use(plugin)
             .use(vuetify)
+            .use(ToastPlugin)
             .mount(el)
     },
 });

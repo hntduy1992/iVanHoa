@@ -13,6 +13,7 @@ Route::prefix('quan-tri')->group(function () {
 
     Route::prefix('danh-muc')->group(function () {
         Route::get('/quyet-dinh', [QuyetDinhController::class, 'index'])->name('quyet-dinh.index');
+        Route::post('/quyet-dinh/create', [QuyetDinhController::class, 'create'])->name('quyet-dinh.create');
     });
 });
 
