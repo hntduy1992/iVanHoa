@@ -17,4 +17,4 @@ Route::get('/chuyen-muc', function () {
 });
 include 'auth.php';
 include 'admin.php';
-
+include 'api.php';

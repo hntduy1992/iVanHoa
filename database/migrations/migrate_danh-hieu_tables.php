@@ -15,13 +15,15 @@ return new class extends Migration {
             $table->unsignedInteger('maQuyetDinh')->index();
             $table->string('tenDanhHieu');
             $table->json('donViApDung');
+            $table->timestamps();
         });
         Schema::create('ql_quyet-dinh', function (Blueprint $table) {
             $table->id();
             $table->integer('nam')->index();
             $table->string('soHieu')->index();
-            $table->string('trichYeu');
-            $table->string('path')->comment('Đường dẫn file');
+            $table->string('trichYeu')->nullable();
+            $table->string('path')->nullable()->comment('Đường dẫn file');
+            $table->timestamps();
         });
     }
 

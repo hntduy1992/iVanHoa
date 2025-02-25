@@ -11,18 +11,19 @@ use Inertia\Inertia;
 
 class QuyetDinhController extends Controller
 {
-    public function index(): \Inertia\Response
+    public function index()
     {
-        return Inertia::render('Admin/DanhMuc/QuyetDinh/QuyetDinhIndex');
+        $items = QuyetDinh::all();
+        return Inertia::render('Admin/DanhMuc/QuyetDinh/QuyetDinhIndex', ['items' => $items]);
     }
 
-//    public function create(QuyetDinhRequest $request): JsonResponse
-//    {
-//        $request->validated();
-//        $newRow = QuyetDinh::create($request->all());
-//        return response()->json([
-//            'success' => true,
-//            'data' => $newRow
-//        ]);
-//    }
+    public function create(QuyetDinhRequest $request)
+    {
+        $request->validated();
+        $newRow = QuyetDinh::create($request->all());
+        return response()->json([
+            'success' => true,
+            'data' => QuyetDinh::query()->orderByDesc('nam')->get(),
+        ]);
+    }
 }

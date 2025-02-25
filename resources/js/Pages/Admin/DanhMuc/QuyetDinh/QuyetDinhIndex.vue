@@ -1,12 +1,24 @@
 <script setup>
 
-import {reactive, ref} from "vue";
+import {onMounted, reactive, ref} from "vue";
 import QuyetDinhCreateForm from "@/Pages/Admin/DanhMuc/QuyetDinh/QuyetDinhCreateForm.vue";
+import axios from "axios";
+
+const props = defineProps({
+    items: Array
+})
+const items = ref(props.items)
+const loadData = () => {
+    axios.get("/api/quyet-dinh/danh-sach").then(res => {
+        items.value = res.data.data;
+    })
+    dialog.value = false
+}
 
 const dialog = ref(false)
 
 const quyetDinhModel = reactive({
-    id: 0 ,
+    id: 0,
     nam: 2024,
     soHieu: 'HHTT',
     trichYeu: 'String',
@@ -16,9 +28,6 @@ const openCreateForm = () => {
     dialog.value = true
 }
 
-const save = ()=>{
-    console.log(quyetDinhModel)
-}
 </script>
 
 <template>
@@ -41,18 +50,20 @@ const save = ()=>{
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>01/QD-UBND-HC</td>
-                        <td>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                            invidunt ut
-                            l
-                        </td>
-                        <td>2024</td>
+                    <tr v-for="(item,index) in items" :key="item.id">
+                        <td>{{ index + 1 }}</td>
+                        <td>{{ item.soHieu }}</td>
+                        <td>{{ item.trichYeu }}</td>
+                        <td>{{ item.nam }}</td>
                         <td style="width: 200px">
                             <v-btn icon="mdi-eye" variant="text" color="info"></v-btn>
                             <v-btn icon="mdi-pencil" variant="text" color="warning"></v-btn>
                             <v-btn icon="mdi-minus" variant="text" color="error"></v-btn>
+                        </td>
+                    </tr>
+                    <tr v-if="items.length === 0">
+                        <td colspan="5">
+                            Không có dữ liệu
                         </td>
                     </tr>
                     </tbody>
@@ -68,7 +79,8 @@ const save = ()=>{
         <v-card>
             <v-card-title>Thêm mới quyết định</v-card-title>
             <v-card-text>
-                <quyet-dinh-create-form ></quyet-dinh-create-form>
+                <quyet-dinh-create-form @updateData="loadData"
+                                        @close="()=>dialog=false"></quyet-dinh-create-form>
             </v-card-text>
         </v-card>
     </v-dialog>

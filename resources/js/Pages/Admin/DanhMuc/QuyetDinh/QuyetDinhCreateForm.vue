@@ -2,11 +2,9 @@
 
 import {onMounted, reactive, ref} from "vue";
 import axios from "axios";
-import {useToast} from "vue-toast-notification";
+import {toast} from "vue3-toastify";
 
-const $toast = useToast();
-
-const emits = defineEmits(['updateData'])
+const emits = defineEmits(['updateData', 'close'])
 
 const formField = reactive({
     nam: new Date().getFullYear(),
@@ -19,21 +17,24 @@ const errors = reactive({
     validate: {}
 })
 
+const close = () => {
+    emits('close')
+}
 const save = async () => {
     await axios.post('/quan-tri/danh-muc/quyet-dinh/create', formField)
         .then((response) => {
-
+            if (response.data.success) {
+                emits('updateData', response.data.data)
+            }
         }).catch((err) => {
             if (err.status === 422)
                 errors.validate = err.response.data.errors
             else {
-                $toast.error('Lỗi máy chủ')
+                toast.error('Lỗi server')
             }
         })
 }
-onMounted(() => {
 
-})
 </script>
 
 <template>
@@ -56,8 +57,7 @@ onMounted(() => {
         <v-divider></v-divider>
         <div class="mt-2 d-flex justify-end">
             <v-btn prepend-icon="mdi-content-save" color="success" @click="save">Lưu</v-btn>
-            <v-btn prepend-icon="mdi-refresh" color="info">Làm mới</v-btn>
-            <v-btn prepend-icon="mdi-close">Huỷ</v-btn>
+            <v-btn prepend-icon="mdi-close" @click="close">Huỷ</v-btn>
         </div>
     </v-form>
 </template>

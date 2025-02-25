@@ -23,9 +23,8 @@ const vuetify = createVuetify({
         },
     },
 })
-
-import ToastPlugin from "vue-toast-notification";
-import 'vue-toast-notification/dist/theme-bootstrap.css';
+import Vue3Toastify from "vue3-toastify";
+import 'vue3-toastify/dist/index.css';
 
 createInertiaApp({
     resolve: (name) => {
@@ -40,8 +39,7 @@ createInertiaApp({
         createApp({render: () => h(App, props)})
             .use(plugin)
             .use(vuetify)
-            .use(ToastPlugin)
+            .use(Vue3Toastify, {position: 'top-right', autoClose: 2500})
             .mount(el)
     },
 });
-
