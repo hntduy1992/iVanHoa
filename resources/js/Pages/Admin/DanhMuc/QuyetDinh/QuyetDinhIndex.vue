@@ -1,32 +1,12 @@
 <script setup>
 
-import {onMounted, reactive, ref} from "vue";
-import QuyetDinhCreateForm from "@/Pages/Admin/DanhMuc/QuyetDinh/QuyetDinhCreateForm.vue";
-import axios from "axios";
+import {ref} from "vue";
+import {router} from "@inertiajs/vue3";
+
 
 const props = defineProps({
     items: Array
 })
-const items = ref(props.items)
-const loadData = () => {
-    axios.get("/api/quyet-dinh/danh-sach").then(res => {
-        items.value = res.data.data;
-    })
-    dialog.value = false
-}
-
-const dialog = ref(false)
-
-const quyetDinhModel = reactive({
-    id: 0,
-    nam: 2024,
-    soHieu: 'HHTT',
-    trichYeu: 'String',
-    path: ''
-})
-const openCreateForm = () => {
-    dialog.value = true
-}
 
 </script>
 
@@ -37,7 +17,8 @@ const openCreateForm = () => {
                 <v-card-title class="d-flex align-center">
                     Danh sách các quyết định
                     <v-spacer></v-spacer>
-                    <v-btn color="primary" icon="mdi-plus" density="comfortable" @click="openCreateForm"></v-btn>
+                    <v-btn color="primary" icon="mdi-plus" density="comfortable"
+                           @click="router.get('/quan-tri/quyet-dinh/them')"></v-btn>
                 </v-card-title>
                 <v-table>
                     <thead>
@@ -71,19 +52,6 @@ const openCreateForm = () => {
             </v-card>
         </v-col>
     </v-row>
-    <!--    Dialog-->
-    <v-dialog
-        v-model="dialog"
-        class="w-lg-50 w-md-75 w-100"
-    >
-        <v-card>
-            <v-card-title>Thêm mới quyết định</v-card-title>
-            <v-card-text>
-                <quyet-dinh-create-form @updateData="loadData"
-                                        @close="()=>dialog=false"></quyet-dinh-create-form>
-            </v-card-text>
-        </v-card>
-    </v-dialog>
 </template>
 
 <style scoped>

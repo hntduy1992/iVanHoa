@@ -2,13 +2,13 @@
 import {router} from "@inertiajs/vue3";
 
 const items = [
-    {title: 'Quyết định', href: '/quan-tri/danh-muc/quyet-dinh'},
-    {title: 'Danh hiệu', href: '/quan-tri/don-vi/don-vi-con'},
-    {title: 'Bộ tiêu chí', href: '/quan-tri/don-vi/danh-sach-tai-khoan'},
-    {title: 'Đơn vị thẩm định', href: '/quan-tri/don-vi/danh-sach-tai-khoan'},
-    {title: 'Quy trình', href: '/quan-tri/don-vi/danh-sach-tai-khoan'},
-    {title: 'Tổ chức', href: '/quan-tri/don-vi/danh-sach-tai-khoan'},
-    {title: 'Lịch đánh giá', href: '/quan-tri/don-vi/danh-sach-tai-khoan'},
+    {title: 'Quyết định', href: '/quan-tri/quyet-dinh'},
+    {title: 'Danh hiệu', href: '/'},
+    {title: 'Bộ tiêu chí', href: '/'},
+    {title: 'Đơn vị thẩm định', href: '/'},
+    {title: 'Quy trình', href: '/'},
+    {title: 'Tổ chức', href: '/'},
+    {title: 'Lịch đánh giá', href: '/'},
 ]
 </script>
 

@@ -17,13 +17,8 @@ class QuyetDinhController extends Controller
         return Inertia::render('Admin/DanhMuc/QuyetDinh/QuyetDinhIndex', ['items' => $items]);
     }
 
-    public function create(QuyetDinhRequest $request)
+    public function create()
     {
-        $request->validated();
-        $newRow = QuyetDinh::create($request->all());
-        return response()->json([
-            'success' => true,
-            'data' => QuyetDinh::query()->orderByDesc('nam')->get(),
-        ]);
+        return Inertia::render('Admin/DanhMuc/QuyetDinh/QuyetDinhUpdate');
     }
 }

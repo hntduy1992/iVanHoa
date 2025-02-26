@@ -15,4 +15,11 @@ class QuyetDinhApiController extends Controller
             'data' => QuyetDinh::all()->sortByDesc('nam', SORT_REGULAR),
         ]);
     }
+
+    public function getById(int $id): JsonResponse
+    {
+        return response()->json([
+            'data' => QuyetDinh::query()->findOrFail($id)
+        ]);
+    }
 }

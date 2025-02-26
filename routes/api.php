@@ -8,12 +8,8 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('api')->group(function () {
     Route::prefix('quyet-dinh')->group(function () {
         Route::get('/danh-sach', [QuyetDinhApiController::class, 'getAll'])->name('api.quyet-dinh.getAll');
+        Route::get('/getById', [QuyetDinhApiController::class, 'getById'])->name('api.quyet-dinh.getById');
 
-    });
-
-    Route::prefix('danh-muc')->group(function () {
-        Route::get('/quyet-dinh', [QuyetDinhController::class, 'index'])->name('quyet-dinh.index');
-        Route::post('/quyet-dinh/create', [QuyetDinhController::class, 'create'])->name('quyet-dinh.create');
     });
 });
 
