@@ -13,6 +13,7 @@ Route::prefix('quan-tri')->group(function () {
     Route::prefix('quyet-dinh')->group(function () {
         Route::get('/', [QuyetDinhController::class, 'index'])->name('quyet-dinh.index');
         Route::get('/them', [QuyetDinhController::class, 'create'])->name('quyet-dinh.create');
+        Route::post('/them', [QuyetDinhController::class, 'store'])->name('quyet-dinh.store');
     });
 });
 

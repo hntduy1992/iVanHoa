@@ -1,13 +1,15 @@
 <script setup>
 
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import {router} from "@inertiajs/vue3";
 
 
 const props = defineProps({
-    items: Array
+    data: Object
 })
-
+onMounted(() => {
+    console.log(props.data)
+})
 </script>
 
 <template>
@@ -20,6 +22,7 @@ const props = defineProps({
                     <v-btn color="primary" icon="mdi-plus" density="comfortable"
                            @click="router.get('/quan-tri/quyet-dinh/them')"></v-btn>
                 </v-card-title>
+
                 <v-table>
                     <thead>
                     <tr>
@@ -31,7 +34,7 @@ const props = defineProps({
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="(item,index) in items" :key="item.id">
+                    <tr v-for="(item,index) in data.data" :key="item.id">
                         <td>{{ index + 1 }}</td>
                         <td>{{ item.soHieu }}</td>
                         <td>{{ item.trichYeu }}</td>
@@ -42,13 +45,20 @@ const props = defineProps({
                             <v-btn icon="mdi-minus" variant="text" color="error"></v-btn>
                         </td>
                     </tr>
-                    <tr v-if="items.length === 0">
+                    <tr v-if="props.data.data.length === 0">
                         <td colspan="5">
                             Không có dữ liệu
                         </td>
                     </tr>
                     </tbody>
                 </v-table>
+                <v-pagination
+                    v-model="props.data.currentPage"
+                    @first="router.get(props.data.firstPageUrl)"
+                    @last="router.get(data.lastPageUrl)"
+                >
+
+                </v-pagination>
             </v-card>
         </v-col>
     </v-row>
