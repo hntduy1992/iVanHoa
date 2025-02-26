@@ -93,16 +93,17 @@ const save = async () => {
             </v-card>
         </v-col>
         <v-col lg="6" md="6" cols="12">
-            <v-card>
-                <v-card-title>
-                    Xem trước văn bản
-                </v-card-title>
-                <v-card-text>
-                    <template v-if="!formField.path">
-                        <span>Vui lòng chọn văn bản</span>
-                    </template>
-                </v-card-text>
-            </v-card>
+            <h3>Preview</h3>
+<!--            <v-card>-->
+<!--                <v-card-title>-->
+<!--                    Xem trước văn bản-->
+<!--                </v-card-title>-->
+<!--                <v-card-text>-->
+<!--                    <template v-if="!formField.path">-->
+<!--                        <span>Vui lòng chọn văn bản</span>-->
+<!--                    </template>-->
+<!--                </v-card-text>-->
+<!--            </v-card>-->
         </v-col>
     </v-row>
 </template>

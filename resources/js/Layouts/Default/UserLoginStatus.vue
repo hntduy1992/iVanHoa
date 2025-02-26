@@ -25,7 +25,7 @@ const props = defineProps({
                 </v-list>
             </v-menu>
         </v-btn>
-        <v-btn variant="elevated" color="red" @click="router.get('/quan-tri/dashboard')">Admin panel</v-btn>
+        <v-btn variant="elevated" color="red" @click="router.get('/quan-tri')">Admin panel</v-btn>
     </template>
     <template v-else>
         <v-btn variant="elevated" @click="router.get('/dang-nhap')">Đăng nhập</v-btn>
