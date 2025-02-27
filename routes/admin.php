@@ -14,6 +14,8 @@ Route::prefix('quan-tri')->group(function () {
         Route::get('/', [QuyetDinhController::class, 'index'])->name('quyet-dinh.index');
         Route::get('/them', [QuyetDinhController::class, 'create'])->name('quyet-dinh.create');
         Route::post('/them', [QuyetDinhController::class, 'store'])->name('quyet-dinh.store');
+        Route::get('/{id}/cap-nhat', [QuyetDinhController::class, 'edit'])->name('quyet-dinh.edit');
+        Route::post('/{id}/cap-nhat', [QuyetDinhController::class, 'update'])->name('quyet-dinh.update');
     });
 });
 

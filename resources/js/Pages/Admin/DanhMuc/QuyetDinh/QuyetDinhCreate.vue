@@ -1,11 +1,5 @@
 <script setup>
 
-import {da} from "vuetify/locale";
-
-const props = defineProps({
-    data: Object
-})
-
 import QuyetDinhForm from "@/Pages/Admin/DanhMuc/QuyetDinh/QuyetDinhForm.vue";
 import {router} from "@inertiajs/vue3";
 import PDFViewer from "pdf-viewer-vue";
@@ -32,8 +26,8 @@ const chooseFile = (file) => {
                     Thông tin chi tiết
                 </v-card-title>
                 <v-card-text>
-                    <quyet-dinh-form :data="data"
-                                     @OnChooseFile="chooseFile"></quyet-dinh-form>
+                    <quyet-dinh-form
+                        @OnChooseFile="chooseFile"></quyet-dinh-form>
                 </v-card-text>
             </v-card>
         </v-col>
@@ -41,7 +35,6 @@ const chooseFile = (file) => {
             <h3>Preview</h3>
             <PDFViewer
                 :source="preview"
-                :url="data.path"
                 rendering-text="Đang tải bảng xem trước"
             ></PDFViewer>
         </v-col>

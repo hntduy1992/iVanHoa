@@ -8,8 +8,10 @@ const props = defineProps({
     data: Object
 })
 onMounted(() => {
-    console.log(props.data)
 })
+const pageClick = (e) => {
+    router.get(props.data.path + '?page=' + e)
+}
 </script>
 
 <template>
@@ -41,7 +43,8 @@ onMounted(() => {
                         <td>{{ item.nam }}</td>
                         <td style="width: 200px">
                             <v-btn icon="mdi-eye" variant="text" color="info"></v-btn>
-                            <v-btn icon="mdi-pencil" variant="text" color="warning"></v-btn>
+                            <v-btn icon="mdi-pencil" variant="text" color="warning"
+                                   @click="router.get(`/quan-tri/quyet-dinh/${item.id}/cap-nhat`)"></v-btn>
                             <v-btn icon="mdi-minus" variant="text" color="error"></v-btn>
                         </td>
                     </tr>
@@ -53,11 +56,10 @@ onMounted(() => {
                     </tbody>
                 </v-table>
                 <v-pagination
-                    v-model="props.data.currentPage"
-                    @first="router.get(props.data.firstPageUrl)"
-                    @last="router.get(data.lastPageUrl)"
+                    v-model="props.data.current_page"
+                    :length="props.data.links.length-2"
+                    @update:modelValue="pageClick"
                 >
-
                 </v-pagination>
             </v-card>
         </v-col>
